@@ -2,12 +2,12 @@ namespace: ckad-apps
 replicaCount: 2
 
 image:
-  repository: nginx
-  tag: 1.25-alpine
+  repository: registry.gitlab.com/oci-project/oci-applications/ckad-app
+  tag: "latest"
 
 service:
   port: 80
-  targetPort: 80
+  targetPort: 8080
 
 resources:
   requests:
@@ -22,7 +22,7 @@ probes:
     path: /
     initialDelay: 5
   liveness:
-    path: /
+    path: /health
     initialDelay: 10
 
 networkPolicy:
