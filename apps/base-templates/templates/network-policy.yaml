@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-secured-traffic
-  namespace: ckad-apps
+  name: {{ .Release.Name }}-netpol
+  namespace: {{ .Values.namespace }}
 spec:
   podSelector:
     matchLabels:
-      app: web-nginx
+      app: {{ .Release.Name }}
   policyTypes:
   - Ingress
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          access: granted
+          access: {{ .Values.networkPolicy.allowedLabelValue }}
     ports:
     - protocol: TCP
-      port: 80
+      port: {{ .Values.service.targetPort }}

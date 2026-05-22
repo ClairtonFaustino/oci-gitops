@@ -1,0 +1,6 @@
+applications:
+  - name: ckad-web-app
+    valueFile: ../ckad-web-app-values.yaml
+    
+  - name: api-redis-app
+    valueFile: ../api-redis-values.yaml

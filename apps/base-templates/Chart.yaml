@@ -1,0 +1,6 @@
+apiVersion: v2
+name: ckad-generic-app
+description: Um Helm Chart generico para praticar conceitos do CKAD
+type: application
+version: 1.0.0
+appVersion: "1.0"
