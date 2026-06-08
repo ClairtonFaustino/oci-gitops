@@ -27,3 +27,11 @@ probes:
 
 networkPolicy:
   allowedLabelValue: granted
+
+secrets:
+  imagePullSecrets:
+    - name: gitlab-registry
+  # env:
+  #   - name: API_KEY
+  #     secretName: app-config
+  #     key: API_KEY

@@ -1,0 +1,3 @@
+# Nunca commitar secrets em texto plano
+*-plain.yaml
+plain-secret*.yaml

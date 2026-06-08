@@ -1,3 +1,8 @@
 applications:
   - name: ckad-web-app
     valueFile: ../ckad-app-values.yaml
+
+secrets:
+  - name: ckad-apps-secrets
+    path: secrets/ckad-apps
+    namespace: ckad-apps

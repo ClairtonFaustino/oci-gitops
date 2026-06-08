@@ -13,11 +13,35 @@ spec:
       labels:
         app: {{ .Release.Name }}
     spec:
+      {{- with .Values.secrets }}
+      {{- with .imagePullSecrets }}
+      imagePullSecrets:
+        {{- range . }}
+        - name: {{ .name }}
+        {{- end }}
+      {{- end }}
+      {{- end }}
       containers:
       - name: web-container
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         ports:
         - containerPort: {{ .Values.service.targetPort }}
+        {{- with .Values.secrets }}
+        {{- with .envFrom }}
+        envFrom:
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
+        {{- with .env }}
+        env:
+          {{- range . }}
+          - name: {{ .name }}
+            valueFrom:
+              secretKeyRef:
+                name: {{ .secretName }}
+                key: {{ .key }}
+          {{- end }}
+        {{- end }}
+        {{- end }}
         resources:
           requests:
             memory: {{ .Values.resources.requests.memory | quote }}
