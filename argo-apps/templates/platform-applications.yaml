@@ -15,9 +15,26 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .namespace | default "default" }}
+  ignoreDifferences:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      jqPathExpressions:
+        - .metadata.annotations
+    - group: gateway.networking.k8s.io
+      kind: GatewayClass
+      jqPathExpressions:
+        - .metadata.annotations
+    - group: gateway.envoyproxy.io
+      kind: EnvoyProxy
+      jqPathExpressions:
+        - .metadata.annotations
+        - .spec.provider.kubernetes.envoyDeployment
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - ServerSideApply=true
 ---
 {{- end }}
