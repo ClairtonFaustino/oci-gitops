@@ -20,6 +20,9 @@ spec:
       containers:
         - name: ckad-app
           image: ${IMAGE_NAME}
+          env:
+            - name: APP_VERSION
+              value: "pr-${MR_IID}"
           ports:
             - containerPort: 8080
           readinessProbe:

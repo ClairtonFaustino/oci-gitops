@@ -4,4 +4,5 @@ metadata:
   name: gateway-config
   namespace: default
 data:
+  # IP publico do cluster OCI. Deve ser igual a GATEWAY_IP no .gitlab-ci.yml.
   externalIP: "129.80.246.47"
