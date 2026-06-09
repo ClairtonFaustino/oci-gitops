@@ -17,4 +17,4 @@ replacements:
           kind: EnvoyProxy
           name: baremetal-proxy
         fieldPaths:
-          - spec.provider.kubernetes.envoyService.externalIPs.0
+          - spec.provider.kubernetes.envoyService.patch.value.spec.externalIPs.0
