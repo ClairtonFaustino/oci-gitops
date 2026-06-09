@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-config
+  namespace: default
+data:
+  # IP publico do node master (terraform output master_ip). Deve ser igual a GATEWAY_IP no GitLab CI.
+  externalIP: "129.80.246.47"

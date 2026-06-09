@@ -2,6 +2,11 @@ applications:
   - name: ckad-web-app
     valueFile: ../ckad-app-values.yaml
 
+platformApps:
+  - name: public-gateway
+    path: platform/gateway
+    namespace: default
+
 secrets:
   - name: ckad-apps-secrets
     path: secrets/ckad-apps

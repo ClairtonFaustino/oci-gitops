@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ckad-app
+  namespace: ${NAMESPACE}
+  labels:
+    app: ckad-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ckad-app
+  template:
+    metadata:
+      labels:
+        app: ckad-app
+    spec:
+      imagePullSecrets:
+        - name: gitlab-registry
+      containers:
+        - name: ckad-app
+          image: ${IMAGE_NAME}
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
