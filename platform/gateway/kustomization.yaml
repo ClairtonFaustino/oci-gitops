@@ -14,7 +14,7 @@ replacements:
       fieldPath: data.externalIP
     targets:
       - select:
-          kind: EnvoyProxy
-          name: baremetal-proxy
+          kind: Gateway
+          name: public-gateway
         fieldPaths:
-          - spec.provider.kubernetes.envoyService.patch.value.spec.externalIPs.0
+          - spec.addresses.0.value

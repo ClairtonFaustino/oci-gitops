@@ -5,6 +5,9 @@ metadata:
   namespace: default
 spec:
   gatewayClassName: eg
+  addresses:
+    - type: IPAddress
+      value: "0.0.0.0"
   listeners:
     - name: http
       protocol: HTTP

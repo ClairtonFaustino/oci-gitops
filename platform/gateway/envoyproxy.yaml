@@ -7,11 +7,6 @@ spec:
   provider:
     type: Kubernetes
     kubernetes:
+      useListenerPortAsContainerPort: true
       envoyService:
-        type: ClusterIP
-        patch:
-          type: StrategicMerge
-          value:
-            spec:
-              externalIPs:
-                - "0.0.0.0"
+        type: LoadBalancer

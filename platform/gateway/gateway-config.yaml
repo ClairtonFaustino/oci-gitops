@@ -4,5 +4,7 @@ metadata:
   name: gateway-config
   namespace: default
 data:
-  # IP publico do node master (terraform output master_ip). Deve ser igual a GATEWAY_IP no GitLab CI.
+  # IP publico do node master (terraform output master_ip).
+  # Usado em Gateway.spec.addresses (Envoy Gateway preenche status e externalIPs do Service).
+  # Deve ser igual a GATEWAY_IP no GitLab CI.
   externalIP: "129.80.246.47"
