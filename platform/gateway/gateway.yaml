@@ -3,13 +3,11 @@ kind: Gateway
 metadata:
   name: public-gateway
   namespace: default
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   gatewayClassName: eg
   addresses:
     - type: IPAddress
-      value: "0.0.0.0"
+      value: "129.80.246.47"
   listeners:
     - name: http
       protocol: HTTP
@@ -24,8 +22,7 @@ spec:
       tls:
         mode: Terminate
         certificateRefs:
-          - group: ""
-            kind: Secret
+          - kind: Secret
             name: vaultwarden-tls
             namespace: default
       allowedRoutes:

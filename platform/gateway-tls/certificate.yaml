@@ -4,10 +4,9 @@ metadata:
   name: vaultwarden-tls
   namespace: default
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   secretName: vaultwarden-tls
-  privateKeyRotationPolicy: Never
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

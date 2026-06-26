@@ -20,15 +20,26 @@ spec:
       kind: Gateway
       jqPathExpressions:
         - .metadata.annotations
+        - .status
     - group: gateway.networking.k8s.io
       kind: GatewayClass
       jqPathExpressions:
         - .metadata.annotations
+        - .status
     - group: gateway.envoyproxy.io
       kind: EnvoyProxy
       jqPathExpressions:
         - .metadata.annotations
         - .spec.provider.kubernetes.envoyDeployment
+        - .status
+    - group: cert-manager.io
+      kind: Certificate
+      jqPathExpressions:
+        - .status
+    - group: cert-manager.io
+      kind: ClusterIssuer
+      jqPathExpressions:
+        - .status
   syncPolicy:
     automated:
       prune: true
@@ -36,5 +47,6 @@ spec:
     syncOptions:
       - RespectIgnoreDifferences=true
       - ServerSideApply=true
+      - SkipDryRunOnMissingResource=true
 ---
 {{- end }}

@@ -6,6 +6,9 @@ platformApps:
   - name: public-gateway
     path: platform/gateway
     namespace: default
+  - name: gateway-tls
+    path: platform/gateway-tls
+    namespace: default
   - name: vaultwarden
     path: platform/vaultwarden
     namespace: vaultwarden
