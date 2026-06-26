@@ -5,6 +5,8 @@ resources:
   - gatewayclass.yaml
   - gateway-config.yaml
   - envoyproxy.yaml
+  - clusterissuer.yaml
+  - certificate.yaml
   - gateway.yaml
 
 replacements:
@@ -18,3 +20,28 @@ replacements:
           name: public-gateway
         fieldPaths:
           - spec.addresses.0.value
+  - source:
+      kind: ConfigMap
+      name: gateway-config
+      fieldPath: data.vaultwardenHostname
+    targets:
+      - select:
+          kind: Gateway
+          name: public-gateway
+        fieldPaths:
+          - spec.listeners.[name=https].hostname
+      - select:
+          kind: Certificate
+          name: vaultwarden-tls
+        fieldPaths:
+          - spec.dnsNames.0
+  - source:
+      kind: ConfigMap
+      name: gateway-config
+      fieldPath: data.acmeEmail
+    targets:
+      - select:
+          kind: ClusterIssuer
+          name: letsencrypt-prod
+        fieldPaths:
+          - spec.acme.email

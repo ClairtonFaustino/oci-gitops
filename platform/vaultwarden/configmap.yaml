@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vaultwarden-config
+  namespace: vaultwarden
+data:
+  # Sincronize com gateway-config (platform/gateway/gateway-config.yaml).
+  hostname: "vault.129-80-246-47.nip.io"
+  domain: "https://vault.129-80-246-47.nip.io"

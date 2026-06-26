@@ -15,3 +15,16 @@ spec:
       allowedRoutes:
         namespaces:
           from: All
+    - name: https
+      protocol: HTTPS
+      port: 443
+      hostname: vault.129-80-246-47.nip.io
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - kind: Secret
+            name: vaultwarden-tls
+            namespace: default
+      allowedRoutes:
+        namespaces:
+          from: All

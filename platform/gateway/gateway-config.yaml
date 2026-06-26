@@ -6,3 +6,8 @@ metadata:
 data:
   # IP publico do cluster OCI. Deve ser igual a GATEWAY_IP no .gitlab-ci.yml.
   externalIP: "129.80.246.47"
+  # Hostname nip.io para Vaultwarden (substitua pontos do IP por hifens).
+  vaultwardenHostname: "vault.129-80-246-47.nip.io"
+  vaultwardenDomain: "https://vault.129-80-246-47.nip.io"
+  # E-mail para registro ACME Let's Encrypt.
+  acmeEmail: "admin@example.com"

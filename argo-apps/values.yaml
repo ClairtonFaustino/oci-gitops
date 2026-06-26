@@ -6,6 +6,9 @@ platformApps:
   - name: public-gateway
     path: platform/gateway
     namespace: default
+  - name: vaultwarden
+    path: platform/vaultwarden
+    namespace: vaultwarden
 
 secrets:
   - name: ckad-apps-secrets
