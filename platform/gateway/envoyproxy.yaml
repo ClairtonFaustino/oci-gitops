@@ -8,13 +8,15 @@ spec:
     type: Kubernetes
     kubernetes:
       envoyService:
-        type: LoadBalancer
+        type: NodePort
         externalTrafficPolicy: Cluster
         patch:
           type: StrategicMerge
           value:
             spec:
               externalTrafficPolicy: Cluster
+              externalIPs:
+                - 129.80.246.47
       envoyDeployment:
         pod:
           nodeSelector:

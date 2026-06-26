@@ -10,10 +10,6 @@ spec:
       group: gateway.envoyproxy.io
       kind: EnvoyProxy
       name: baremetal-proxy
-      namespace: default
-  addresses:
-    - type: IPAddress
-      value: "129.80.246.47"
   listeners:
     - name: http
       protocol: HTTP
