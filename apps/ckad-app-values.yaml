@@ -3,7 +3,7 @@ replicaCount: 2
 
 image:
   repository: registry.gitlab.com/oci-project/oci-applications/ckad-app
-  tag: 5e9fb8d5
+  tag: abd0f7e1
 
 service:
   port: 80
