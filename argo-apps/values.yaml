@@ -14,3 +14,6 @@ secrets:
   - name: ckad-apps-secrets
     path: secrets/ckad-apps
     namespace: ckad-apps
+  - name: vaultwarden-secrets
+    path: secrets/vaultwarden
+    namespace: vaultwarden
