@@ -9,5 +9,4 @@ data:
   # Hostname nip.io para Vaultwarden (substitua pontos do IP por hifens).
   vaultwardenHostname: "vault.129-80-246-47.nip.io"
   vaultwardenDomain: "https://vault.129-80-246-47.nip.io"
-  # E-mail para registro ACME Let's Encrypt.
-  acmeEmail: "admin@example.com"
+  acmeEmail: "clairtonsfaustino@gmail.com"
