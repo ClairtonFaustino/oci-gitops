@@ -9,3 +9,17 @@ spec:
     kubernetes:
       envoyService:
         type: LoadBalancer
+        externalTrafficPolicy: Cluster
+        patch:
+          type: StrategicMerge
+          value:
+            spec:
+              externalTrafficPolicy: Cluster
+      envoyDeployment:
+        pod:
+          nodeSelector:
+            kubernetes.io/hostname: k8s-master
+          tolerations:
+            - key: node-role.kubernetes.io/control-plane
+              operator: Exists
+              effect: NoSchedule
